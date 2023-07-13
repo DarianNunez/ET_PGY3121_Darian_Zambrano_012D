@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'img/productos.png' %}">
+    <title>Productos</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">
+            <img src="{%static 'img/logo_empresa.png'%}" width="30px" height="30px">
+        </a>
+
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Incio'%}" style="color:rgb(255, 255, 255)">Incio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mision'%}" style="color:rgb(255, 255, 255)">Sobre nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'tienda'%}" style="color:rgb(255, 255, 255)">Productos</a>
+                </li>
+            </ul>
+        </div>
+    </nav><!--cierre de menú-->
+
+    <div class="container">
+        <h2> Plantas </h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Descripcion</th>
+                    <th>Prev</th>
+                    <th>Categoria</th>
+                    <th>Eliminar</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plantita in plantitas%}
+                <tr>
+                    <td>{{ plantita.idProducto }}</td>
+                    <td>{{ plantita.tituloProducto }}</td>
+                    <td>{{ plantita.precio }}</td>
+                    <td>{{ plantita.descripcion }}</td>  
+                    {% if plantita.imagen  %}
+                    <td>
+                        <img src="{{ plantita.imagen.url }}" style="height: 50px; width: 50px;">
+                    </td>
+                    {% else %}
+                    <td>
+                        <img src="{% static 'img/no.png' %}" style="height: 50px; width: 50px;">
+                    </td>
+                    {% endif %}
+                    <td>{{ plantita.categoria }}</td> 
+                    <td><a href="{% url 'eliminar' plantita.idProducto %}" class="btn btn-danger">Eliminar</td>
+                    <td><a href="{% url 'modificar' plantita.idProducto %}" class="btn btn-warning">Modificar</td>  
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+
+        <a href="{% url 'crear'%}" class="btn btn-success">Crear producto</a> 
+        
+    </div>
+
+    <footer class="footer container-fluid bottom">
+        <div class="row p-5 bg-dark text-white">
+
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <h3>Redes</h3>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none"><img src="{% static 'img/facebook.png'%}"
+                            width="30px">ManitosVerdes</a>
+                </div>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none"><img src="{% static 'img/instagram.png'%}"
+                            width="30px">@ManitosVerdes</a>
+                </div>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none"><img src="{% static 'img/Whatsapp.png'%}" width="30px">+569
+                        9999 999</a>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <h3 class="text-white">Contactanos</h3>
+                <h5 class="text-secondary"><img src="{% static 'img/contactanos.png'%}" width="30px"><a href="{% url 'formulario'%}"
+                        style="color: rgb(105, 105, 105);">Envianos un mensaje</a></h5>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <h3 class="text-white">Correo</h3>
+                <h5 class="text-secondary"><img src="{% static 'img/Correo.png'%}" width="30px">manitosverdesoficial@gmail.com
+                </h5>
+            </div>
+            <div class="row p-3 bg-dark text-white">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h5 class="text-secondary"><img src="{% static 'img/logo_empresa.png'%}" width="45px">&#169;Copyrights todos
+                        los derechos reservados a Manitos Verdes ONG 2023</h5>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

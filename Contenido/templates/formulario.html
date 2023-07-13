@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/textarea.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <link rel="icon" href="img/formulario.png">
+    <script src="{% static 'java/query.js'%}"></script>
+    <script src="{% static 'java/rutinas.js'%}"></script>
+    <script src="{% static 'java/colores.js'%}"></script>
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">
+            <img src="{%static 'img/logo_empresa.png'%}" width="30px" height="30px">
+        </a>
+
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Incio'%}" style="color:rgb(255, 255, 255)">Incio</a>
+                </li>
+            </ul>
+        </div>
+    </nav><!--cierre de menú-->
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+
+                <form id="formulario" method="post">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input onmouseenter="colorGris(this)" onmouseout="colorBlanco(this)" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre y apellido"
+                            class="form-control" maxlength="30">
+                    </div>
+                    <div class="form-group">
+                        <label for="rut">Rut</label>
+                        <input onmouseenter="colorGris(this)" onmouseout="colorBlanco(this)" type="number" id="rut" name="rut" placeholder="Ingrese su rut"
+                            class="form-control" minlength="9" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="fono">Fono</label>
+                        <input onmouseenter="colorGris(this)" onmouseout="colorBlanco(this)" type="number" id="fono" name="fono" placeholder="Ingrese su Número de telefono"
+                            class="form-control" minlength="10" maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input onmouseenter="colorGris(this)" onmouseout="colorBlanco(this)" type="email" id="email" name="email"
+                            placeholder="Ingrese su direccion de correo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="consulta">Consulta</label>
+                        <b>//Palabras escritas:</b>
+                        <input type="text" name="cantidad" value="0" size="2"><br>
+                        <textarea onmouseenter="colorGris(this)" onmouseout="colorBlanco(this)" name="mensaje" rows="10" class="con-css form-control"
+                        onKeyPress="contarPalabras(this.form); if (event.keycode1 == 13) form.mensaje.value +=' ';"></textarea>
+                    </div>
+                    <input type="button" value="Enviar" onClick="ConfirmarEnvio(this.form)" id="enviar" class="btn btn-success float-right">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer container-fluid bottom">
+        <div class="row p-5 bg-dark text-white">
+
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <h3>Redes</h3>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none"><img src="{% static 'img/facebook.png'%}"
+                            width="30px">ManitosVerdes</a>
+                </div>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none"><img src="{% static 'img/instagram.png'%}"
+                            width="30px">@ManitosVerdes</a>
+                </div>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none"><img src="{% static 'img/Whatsapp.png'%}" width="30px">+569
+                        9999 999</a>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <h3 class="text-white">Contactanos</h3>
+                <h5 class="text-secondary"><img src="{% static 'img/contactanos.png'%}" width="30px"><a href="{% url 'formulario'%}"
+                        style="color: rgb(105, 105, 105);">Envianos un mensaje</a></h5>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <h3 class="text-white">Correo</h3>
+                <h5 class="text-secondary"><img src="{% static 'img/Correo.png'%}" width="30px">manitosverdesoficial@gmail.com
+                </h5>
+            </div>
+            <div class="row p-3 bg-dark text-white">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h5 class="text-secondary"><img src="{% static 'img/logo_empresa.png'%}" width="45px">&#169;Copyrights todos
+                        los derechos reservados a Manitos Verdes ONG 2023</h5>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="icon" href="{% static 'img/mision.png'%}">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'img/logo_empresa.png'%}" width="30px" height="30px">
+        </a>
+
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Incio'%}" style="color:rgb(255, 255, 255)">Incio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'tienda'%}" style="color:rgb(255, 255, 255)">Productos</a>
+                </li>
+            </ul>
+        </div>
+    </nav><!--cierre de menú-->
+
+    <div class="container-fluid">
+        <h3 class="text-center">Nosotros</h3>
+
+        <p class="text-center" style="color:rgb(0, 0, 0)">Como ONG buscamos el ayudar a los vecinos en el cuidado
+            y mantención de sus jardines, siendo completamente transparentes tanto con nuestros precios,
+            como con nuestros envios, estimando los tiempos de forma segura y sin engaños, de necesitar asistencia
+            durante la cotización siempre estaremos atentos a preguntas por nuestras redes indicadas
+            al final de nuestra pagina</p>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-sm-8">
+                <div class="embed-responsive embed-responsive-21by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/aGKnWbPy2A0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p class="text-center" style="color:rgb(0, 0, 0)">Como muchas personas con plantas suelen tener la duda de
+            como trasplantar sus plantitas, del dejamos un video instructivo para que aprendan!</p>
+
+        <div class="row justify-content-center">
+            <a style="color:rgb(0, 0, 0)" href="{% url 'APIrets'%}">Algunos de nuestros clientes satisfechos</a>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+        <footer class="footer container-fluid bottom">
+            <div class="row p-5 bg-dark text-white">
+
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <h3>Redes</h3>
+                    <div class="mb-2">
+                        <a class="text-secondary text-decoration-none"><img src="{% static 'img/facebook.png'%}"
+                                width="30px">ManitosVerdes</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-secondary text-decoration-none"><img src="{% static 'img/instagram.png'%}"
+                                width="30px">@ManitosVerdes</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-secondary text-decoration-none"><img src="{% static 'img/Whatsapp.png'%}" width="30px">+569
+                            9999 999</a>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <h3 class="text-white">Contactanos</h3>
+                    <h5 class="text-secondary"><img src="{% static 'img/contactanos.png'%}" width="30px"><a href="{% url 'formulario'%}"
+                            style="color: rgb(105, 105, 105);">Envianos un mensaje</a></h5>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <h3 class="text-white">Correo</h3>
+                    <h5 class="text-secondary"><img src="{% static 'img/Correo.png'%}" width="30px">manitosverdesoficial@gmail.com
+                    </h5>
+                </div>
+                <div class="row p-3 bg-dark text-white">
+                    <div class="col-xs-12 col-md-12 col-lg-12">
+                        <h5 class="text-secondary"><img src="{% static 'img/logo_empresa.png'%}" width="45px">&#169;Copyrights todos
+                            los derechos reservados a Manitos Verdes ONG 2023</h5>
+                    </div>
+
+                </div>
+            </div>
+
+        </footer>
+</body>
+
+</html>

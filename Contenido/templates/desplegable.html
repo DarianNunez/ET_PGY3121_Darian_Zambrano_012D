@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.css' %}">
+    <link rel="icon" href="{%static 'img/desplegables.png'%}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">
+            <img src="{%static 'img/logo_empresa.png'%}" width="30px" height="30px">
+        </a>
+
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Incio'%}" style="color:rgb(255, 255, 255)">Incio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mision'%}" style="color:rgb(255, 255, 255)">Sobre nosotros</a>
+                </li>
+            </ul>
+        </div>
+    </nav><!--cierre de menú-->
+
+    <br>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-4">
+                <div class="card">
+                    <div class="card-body bg-success">
+                        <img src="{% static 'img/orquideas.jpg' %}" class="card-img-top">
+                        <h5 class="card-title text-white">Orquideas</h5>
+                        <p class="card-text text-white">Flor de orquidea, color rosa/magenta, 2 años de crianza, cuidado complejo,
+                            mantener en lugar donde tenga luz indirecta</p>
+                        <a href="#" class="btn btn btn-info">Añadir a carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="card">
+                    <div class="card-body bg-success">
+                        <img src="{% static 'img/cheflera.JPG' %}" class="card-img-top">
+                        <h5 class="card-title text-white">Cheflera</h5>
+                        <p class="card-text text-white">Arbusto cheflera, pequeño recién en crianza, faciles cuidados agua cada dos
+                            dias, planta de interior </p>
+                        <a href="#" class="btn btn btn-info">Añadir a carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="card">
+                    <div class="card-body bg-success">
+                        <img src="{% static 'img/tierra_hojas.jpeg'%}" class="card-img-top">
+                        <h5 class="card-title text-white">Tierra de hojas</h5>
+                        <p class="card-text text-white">Tierra especial para el crecimiento y cambio de macetero de las plantas,
+                            mantener en lugar seco, 15 kilos el saco</p>
+                        <a href="#" class="btn btn btn-info">Añadir a carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-4">
+                <div class="card">
+                    <div class="card-body bg-success">
+                        <img src="{% static 'img/macetero.jpg'%}" class="card-img-top">
+                        <h5 class="card-title text-white">Macetero</h5>
+                        <p class="card-text text-white">Pack de maceteros, 10 cm de diametro, material reciclado forrado en malla
+                            cafe</p>
+                        <a href="#" class="btn btn btn-info">Añadir a carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="card">
+                    <div class="card-body bg-success">
+                        <img src="{% static 'img/plato_macetero.jpg'%}" class="card-img-top">
+                        <h5 class="card-title text-white">Plato para macetero</h5>
+                        <p class="card-text text-white">Plato de 12 cm de diametro, para maceteros de 10 cm, color gris de pbc</p>
+                        <a href="#" class="btn btn btn-info">Añadir a carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="card">
+                    <div class="card-body bg-success">
+                        <img src="{% static 'img/palita.jpg'%}" class="card-img-top">
+                        <h5 class="card-title text-white">Pala punta cuadrada</h5>
+                        <p class="card-text text-white">Pala metalica de mano, para transplantar o preparar la tierra</p>
+                        <a href="#" class="btn btn btn-info">Añadir a carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-4">
+                <div class="card">
+                    <div class="card-body bg-success">
+                        <img src="{% static 'img/Regadera.jpg'%}" class="card-img-top">
+                        <h5 class="card-title text-white">Regadera 2 lts</h5>
+                        <p class="card-text text-white">Regadera plastica de 2 litros, color verde de facil agarre</p>
+                        <a href="#" class="btn btn btn-info">Añadir a carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                <div class="card">
+                    <div class="card-body bg-success">
+                        <img src="{% static 'img/guantes.jpg'%}" class="card-img-top">
+                        <h5 class="card-title text-white">Guantes de jardinero</h5>
+                        <p class="card-text text-white">Guantes de talla S/M/L para cuidar manos en trabajos con la tierra e
+                            insectos</p>
+                        <a href="#" class="btn btn btn-info">Añadir a carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+        <footer class="footer container-fluid bottom">
+            <div class="row p-5 bg-dark text-white">
+
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <h3>Redes</h3>
+                    <div class="mb-2">
+                        <a class="text-secondary text-decoration-none"><img src="{% static 'img/facebook.png'%}"
+                                width="30px">ManitosVerdes</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-secondary text-decoration-none"><img src="{% static 'img/instagram.png'%}"
+                                width="30px">@ManitosVerdes</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-secondary text-decoration-none"><img src="{% static 'img/Whatsapp.png'%}" width="30px">+569
+                            9999 999</a>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <h3 class="text-white">Contactanos</h3>
+                    <h5 class="text-secondary"><img src="{% static 'img/contactanos.png'%}" width="30px"><a href="{% url 'formulario'%}"
+                            style="color: rgb(105, 105, 105);">Envianos un mensaje</a></h5>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <h3 class="text-white">Correo</h3>
+                    <h5 class="text-secondary"><img src="{% static 'img/Correo.png'%}" width="30px">manitosverdesoficial@gmail.com
+                    </h5>
+                </div>
+                <div class="row p-3 bg-dark text-white">
+                    <div class="col-xs-12 col-md-12 col-lg-12">
+                        <h5 class="text-secondary"><img src="{% static 'img/logo_empresa.png'%}" width="45px">&#169;Copyrights todos
+                            los derechos reservados a Manitos Verdes ONG 2023</h5>
+                    </div>
+
+                </div>
+            </div>
+
+        </footer>
+</body>
+
+</html>

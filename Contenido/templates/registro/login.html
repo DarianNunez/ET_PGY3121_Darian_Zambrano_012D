@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Inicio sesión</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="icon" href="{% static 'img/logo_empresa.png' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <link href="{% static 'css/estilos.css' %}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">
+            <img src="{%static 'img/logo_empresa.png'%}" width="30px" height="30px">
+        </a>
+
+    </nav><!--cierre de menú-->
+
+    {% load crispy_forms_tags %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Ingrese sus datos</h2>
+                        <hr>
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            {{ form | crispy}}
+                            <a href="{% url 'Inicio' '%}">Volver al inicio</a>
+                            <a href="{% url 'Inicio' '%}">Registrarme</a>
+                            <input type="submit" value="Ingresar" class="btn btn-success" style="float:right">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <br>
+        <br>
+
+        <footer class="footer container-fluid bottom">
+            <div class="row p-5 bg-dark text-white">
+
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <h3>Redes</h3>
+                    <div class="mb-2">
+                        <a class="text-secondary text-decoration-none"><img src="{% static 'img/facebook.png'%}"
+                                width="30px">ManitosVerdes</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-secondary text-decoration-none"><img src="{% static 'img/instagram.png'%}"
+                                width="30px">@ManitosVerdes</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-secondary text-decoration-none"><img src="{% static 'img/Whatsapp.png'%}" width="30px">+569
+                            9999 999</a>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <h3 class="text-white">Contactanos</h3>
+                    <h5 class="text-secondary"><img src="{% static 'img/contactanos.png'%}" width="30px"><a href="{% url 'formulario'%}"
+                            style="color: rgb(105, 105, 105);">Envianos un mensaje</a></h5>
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-4">
+                    <h3 class="text-white">Correo</h3>
+                    <h5 class="text-secondary"><img src="{% static 'img/Correo.png'%}" width="30px">manitosverdesoficial@gmail.com
+                    </h5>
+                </div>
+                <div class="row p-3 bg-dark text-white">
+                    <div class="col-xs-12 col-md-12 col-lg-12">
+                        <h5 class="text-secondary"><img src="{% static 'img/logo_empresa.png'%}" width="45px">&#169;Copyrights todos
+                            los derechos reservados a Manitos Verdes ONG 2023</h5>
+                    </div>
+
+                </div>
+            </div>
+
+        </footer>
+</body>
+</html>
+{% endblock %}

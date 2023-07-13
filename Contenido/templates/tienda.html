@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="icon" href="{% static 'img/logo_empresa.png' %}">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">
+            <img src="{%static 'img/logo_empresa.png'%}" width="30px" height="30px">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mision'%}" style="color:rgb(255, 255, 255)">Sobre nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index'%}" style="color:rgb(255, 255, 255)">Agregar Producto</a>
+                </li>
+            </ul>
+            <div style="margin-left: auto;">
+                    <a href="{% url 'login' %}" style="color: black;">
+                        <img src="{% static 'img/sesion.png' %}" width="20px">Iniciar Sesión
+                    </a>
+            </div>
+        </div>
+    </nav><!--cierre de menú-->
+
+    <br>
+
+    <div class="container">
+        <h2> Tienda </h2><br>
+        <div class="row">
+            <div class="col-8">
+                <div class="row" style="padding: 5px 0;">
+                    <div class="col-12">
+                        <div class="row">
+                            {% for plantita in plantitas %}
+                            <div class="col-xs-6 col-md-3 col-lg-4">
+                                <div class="card text-center">
+                                    {% if plantita.imagen %}
+                                        <img src="{{ plantita.imagen.url }}" class="card-img-top mx-auto">
+                                    {% else %}
+                                        <img src="{% static 'img/no.png' %}" class="card-img-top mx-auto">
+                                    {% endif %}
+                                    <div class="card-body bg-success">
+                                        <h5 class="card-title" style="font-weight:bold;"> Código : {{ plantita.idProducto }}</h5>
+                                        <h6 class="card-text" style="font-weight:bold; color: rgb(71, 71, 71);"> {{ plantita.categoria }}</h6>
+                                        <p class="card-text">
+                                            {{ plantita.tituloProducto }}<br>
+                                           ${{ plantita.precio }}<br>
+                                           <hr>
+                                            {{ plantita.descripcion }}<br>
+                                        </p>
+                                        <a href="{% url 'agregar_producto' plantita.idProducto %}" class="btn btn-warning">Agregar al carro</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                          </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-4">
+                    {% include "carrito.html" %}
+                </div>
+            </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <br>
+    <br>
+
+    <footer class="footer container-fluid bottom">
+        <div class="row p-5 bg-dark text-white">
+
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <h3>Redes</h3>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none"><img src="{% static 'img/facebook.png'%}"
+                            width="30px">ManitosVerdes</a>
+                </div>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none"><img src="{% static 'img/instagram.png'%}"
+                            width="30px">@ManitosVerdes</a>
+                </div>
+                <div class="mb-2">
+                    <a class="text-secondary text-decoration-none"><img src="{% static 'img/Whatsapp.png'%}" width="30px">+569
+                        9999 999</a>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <h3 class="text-white">Contactanos</h3>
+                <h5 class="text-secondary"><img src="{% static 'img/contactanos.png'%}" width="30px"><a href="{% url 'formulario'%}"
+                        style="color: rgb(105, 105, 105);">Envianos un mensaje</a></h5>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-4">
+                <h3 class="text-white">Correo</h3>
+                <h5 class="text-secondary"><img src="{% static 'img/Correo.png'%}" width="30px">manitosverdesoficial@gmail.com
+                </h5>
+            </div>
+            <div class="row p-3 bg-dark text-white">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h5 class="text-secondary"><img src="{% static 'img/logo_empresa.png'%}" width="45px">&#169;Copyrights todos
+                        los derechos reservados a Manitos Verdes ONG 2023</h5>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
